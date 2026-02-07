@@ -27,6 +27,14 @@ function playTone(frequency, duration, type = 'sine') {
   }
 }
 
+export function vibrate(pattern = 50) {
+  try {
+    if (navigator.vibrate) navigator.vibrate(pattern)
+  } catch {
+    // Vibration not supported
+  }
+}
+
 export function useSound() {
   const lastPlay = useRef(0)
 
@@ -34,6 +42,7 @@ export function useSound() {
     const now = Date.now()
     if (now - lastPlay.current < 100) return
     lastPlay.current = now
+    vibrate(30)
     playTone(523, 0.1)
     setTimeout(() => playTone(659, 0.1), 100)
     setTimeout(() => playTone(784, 0.15), 200)
@@ -43,6 +52,7 @@ export function useSound() {
     const now = Date.now()
     if (now - lastPlay.current < 100) return
     lastPlay.current = now
+    vibrate([50, 30, 50])
     playTone(300, 0.15, 'square')
     setTimeout(() => playTone(220, 0.2, 'square'), 150)
   }, [])
@@ -51,11 +61,16 @@ export function useSound() {
     const now = Date.now()
     if (now - lastPlay.current < 100) return
     lastPlay.current = now
+    vibrate([30, 50, 30, 50, 100])
     playTone(523, 0.08)
     setTimeout(() => playTone(659, 0.08), 80)
     setTimeout(() => playTone(784, 0.08), 160)
     setTimeout(() => playTone(1047, 0.25), 240)
   }, [])
 
-  return { playSuccess, playError, playConfetti }
+  const playTick = useCallback(() => {
+    playTone(880, 0.03, 'sine')
+  }, [])
+
+  return { playSuccess, playError, playConfetti, playTick }
 }

@@ -17,10 +17,19 @@ export function usePlayer() {
       prenom: data.prenom.trim(),
       classe: data.classe.trim(),
       avatar: data.avatar,
+      darkMode: false,
       createdAt: new Date().toISOString(),
     }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(profile))
     setPlayer(profile)
+  }, [])
+
+  const updatePlayer = useCallback((patch) => {
+    setPlayer((prev) => {
+      const updated = { ...prev, ...patch }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated))
+      return updated
+    })
   }, [])
 
   const resetPlayer = useCallback(() => {
@@ -28,5 +37,5 @@ export function usePlayer() {
     setPlayer(null)
   }, [])
 
-  return { player, savePlayer, resetPlayer }
+  return { player, savePlayer, updatePlayer, resetPlayer }
 }
