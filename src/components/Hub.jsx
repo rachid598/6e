@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { exportResults } from '../hooks/useHistory'
+import DateIcon from './DateIcon'
 
 const GAMES = [
   { id: 'table-strike', title: 'Table-Strike', description: 'Tables de multiplication', emoji: '\u26A1', color: 'from-indigo-500 to-purple-500', path: '/table-strike' },
@@ -47,7 +48,10 @@ export default function Hub({ player, onReset, darkMode, onToggleDark, badgeCoun
                 style={{ animationDelay: `${i * 60}ms`, animationFillMode: 'both' }}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-3xl">{game.emoji}</span>
+                  {game.id === 'daily'
+                    ? <DateIcon size="small" />
+                    : <span className="text-3xl">{game.emoji}</span>
+                  }
                   <div>
                     <h2 className="text-base font-bold">{game.title}</h2>
                     <p className="text-xs opacity-80">{game.description}</p>

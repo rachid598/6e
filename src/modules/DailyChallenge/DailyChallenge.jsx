@@ -7,6 +7,7 @@ import Stars, { getStars } from '../../components/Stars'
 import PageTransition from '../../components/PageTransition'
 import { useSound } from '../../hooks/useSound'
 import { addHistory } from '../../hooks/useHistory'
+import DateIcon from '../../components/DateIcon'
 
 const TOTAL = 10
 const DAILY_KEY = 'maths6e_daily'
@@ -107,7 +108,7 @@ export default function DailyChallenge({ player, onBadgeCheck }) {
     return (
       <PageTransition><div className="flex flex-col items-center justify-center min-h-screen bg-surface dark:bg-gray-900 px-4">
         <div className="animate-pop-in text-center max-w-sm">
-          <div className="text-6xl mb-4">{'\uD83D\uDCC5'}</div>
+          <div className="mb-4 flex justify-center"><DateIcon /></div>
           <h1 className="text-3xl font-extrabold text-primary-dark dark:text-primary-light mb-2">Defi du jour</h1>
           <p className="text-gray-500 dark:text-gray-400 mb-2">10 questions — les memes pour toute la classe !</p>
           <p className="text-xs text-gray-400 mb-6">Un seul essai par jour.</p>
@@ -123,7 +124,7 @@ export default function DailyChallenge({ player, onBadgeCheck }) {
     return (
       <PageTransition><div className="flex flex-col items-center justify-center min-h-screen bg-surface dark:bg-gray-900 px-4">
         <div className="animate-pop-in text-center">
-          <div className="text-7xl mb-4">{score === TOTAL ? '\uD83C\uDFC6' : '\uD83D\uDCC5'}</div>
+          <div className="mb-4 flex justify-center">{score === TOTAL ? <span className="text-7xl">{'\uD83C\uDFC6'}</span> : <DateIcon />}</div>
           <h2 className="text-3xl font-extrabold text-primary-dark dark:text-primary-light mb-2">{score} / {TOTAL}</h2>
           <Stars count={stars} size="text-2xl" />
           <p className="text-sm text-gray-400 mb-8 mt-2">Reviens demain !</p>
@@ -138,7 +139,7 @@ export default function DailyChallenge({ player, onBadgeCheck }) {
   return (
     <div className="flex flex-col min-h-screen bg-surface dark:bg-gray-900">
       <header className="flex items-center justify-between px-4 py-3 bg-white/80 dark:bg-gray-800/80 border-b border-primary/10">
-        <span className="text-sm font-bold text-primary-dark dark:text-primary-light">{'\uD83D\uDCC5'} Defi du jour</span>
+        <span className="text-sm font-bold text-primary-dark dark:text-primary-light flex items-center gap-2"><DateIcon size="small" /> Defi du jour</span>
         <span className="text-2xl">{player.avatar?.emoji || '\uD83C\uDFB2'}</span>
       </header>
       <div className="px-4 pt-3"><ProgressBar current={qi} total={TOTAL} streak={streak} /></div>
