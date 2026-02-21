@@ -9,6 +9,8 @@ const GAMES = [
   { id: 'opera', title: 'Opera-Mix', description: '+, -, x melanges !', emoji: '\uD83C\uDFB0', color: 'from-pink-500 to-rose-500', path: '/opera-mix' },
   { id: 'daily', title: 'Defi du jour', description: 'Les memes questions pour toute la classe', emoji: '\uD83D\uDCC5', color: 'from-amber-500 to-yellow-500', path: '/daily' },
   { id: 'duel', title: 'Duel Local', description: '2 joueurs, 1 telephone !', emoji: '\uD83E\uDD4A', color: 'from-cyan-500 to-blue-500', path: '/duel' },
+  { id: 'fractions', title: 'Fractions Visuelles', description: 'Manipule et simplifie les fractions', emoji: '🥧', color: 'from-violet-500 to-purple-600', path: '/fractions-visuelles' },
+  { id: 'geo', title: 'GeoBuilder', description: 'Construction géométrique interactive', emoji: '📐', color: 'from-lime-500 to-green-600', path: '/geo-builder' },
 ]
 
 export default function Hub({ player, onReset, darkMode, onToggleDark, badgeCount }) {
