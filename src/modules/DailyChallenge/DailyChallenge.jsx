@@ -112,8 +112,8 @@ export default function DailyChallenge({ player, onBadgeCheck }) {
           <h1 className="text-3xl font-extrabold text-primary-dark dark:text-primary-light mb-2">Defi du jour</h1>
           <p className="text-gray-500 dark:text-gray-400 mb-2">10 questions — les memes pour toute la classe !</p>
           <p className="text-xs text-gray-400 mb-6">Un seul essai par jour.</p>
-          <button onClick={start} className="w-full py-4 rounded-xl bg-accent text-white font-bold text-xl active:scale-95 transition-transform">Relever le defi !</button>
-          <button onClick={() => navigate('/')} className="mt-4 text-sm text-gray-400">{'\u2190'} Retour au Hub</button>
+          <button onClick={start} className="w-full py-4 rounded-xl bg-accent text-gray-900 dark:text-gray-900 font-bold text-xl active:scale-95 transition-transform">Relever le defi !</button>
+          <button onClick={() => navigate('/')} className="mt-4 text-sm text-gray-500 dark:text-gray-400">{'\u2190'} Retour au Hub</button>
         </div>
       </div></PageTransition>
     )

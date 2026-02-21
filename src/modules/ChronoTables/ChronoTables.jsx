@@ -100,7 +100,7 @@ export default function ChronoTables({ player, onBadgeCheck }) {
           <p className="text-gray-500 dark:text-gray-400 mb-2">60 secondes. Le plus de bonnes reponses possible.</p>
           {best > 0 && <p className="text-accent font-bold mb-4">Record : {best}</p>}
           <button onClick={start} className="w-full py-4 rounded-xl bg-primary text-white font-bold text-xl active:scale-95 transition-transform">C'est parti !</button>
-          <button onClick={() => navigate('/')} className="mt-4 text-sm text-gray-400">{'\u2190'} Retour au Hub</button>
+          <button onClick={() => navigate('/')} className="mt-4 text-sm text-gray-500 dark:text-gray-400">{'\u2190'} Retour au Hub</button>
         </div>
       </div></PageTransition>
     )
@@ -117,7 +117,7 @@ export default function ChronoTables({ player, onBadgeCheck }) {
           {isRecord && <p className="text-accent font-bold">Nouveau record !</p>}
           <p className="text-sm text-gray-400 mb-8">Meilleur : {best}</p>
           <button onClick={start} className="w-full py-3 rounded-xl bg-primary text-white font-bold active:scale-95 transition-transform mb-3">Rejouer</button>
-          <button onClick={() => navigate('/')} className="text-sm text-gray-400">{'\u2190'} Retour au Hub</button>
+          <button onClick={() => navigate('/')} className="text-sm text-gray-500 dark:text-gray-400">{'\u2190'} Retour au Hub</button>
         </div>
       </div></PageTransition>
     )
